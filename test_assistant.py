@@ -15,6 +15,8 @@ from dotenv import load_dotenv
 from openai import OpenAI
  
 load_dotenv()
+if os.environ.get("API_KEY") and not os.environ.get("OPENAI_API_KEY"):
+    os.environ["OPENAI_API_KEY"] = os.environ["API_KEY"]
 client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
  
 ASSISTANT_ID = os.environ["ASSISTANT_ID"]

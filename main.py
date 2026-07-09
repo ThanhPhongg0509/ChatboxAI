@@ -18,6 +18,9 @@ import os
 import sys
 import logging
 
+if os.environ.get("API_KEY") and not os.environ.get("OPENAI_API_KEY"):
+    os.environ["OPENAI_API_KEY"] = os.environ["API_KEY"]
+
 from scraper.zendesk_client import fetch_all_articles
 from scraper.markdown_converter import article_to_markdown, slugify
 from scraper.state import load_state, save_state, content_hash, classify
@@ -35,7 +38,7 @@ VECTOR_STORE_NAME = os.environ.get("VECTOR_STORE_NAME", "optibot-kb")
 
 def main() -> int:
     if not os.environ.get("OPENAI_API_KEY"):
-        log.error("OPENAI_API_KEY is not set. Copy .env.sample to .env and fill it in.")
+        log.error("OPENAI_API_KEY or API_KEY is not set. Copy .env.sample to .env and fill it in.")
         return 1
 
     os.makedirs(MARKDOWN_DIR, exist_ok=True)
