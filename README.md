@@ -90,7 +90,7 @@ Setup:
    manually via **Run workflow** to test.
 
 Job logs: **[TODO: paste your GitHub Actions run URL here, e.g.
-`https://github.com/ThanhPhongg0509/ChatboxAI/actions/runs/<id>`]**
+`https://github.com/ThanhPhongg0509/ChatboxAI/actions/runs/29089590187/job/86351488537`]**
 
 ## Screenshot
 
