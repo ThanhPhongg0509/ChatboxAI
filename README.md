@@ -94,8 +94,7 @@ Job logs: **[TODO: paste your GitHub Actions run URL here, e.g.
 
 ## Screenshot
 
-**[TODO: paste screenshot of `test_assistant.py` output answering
-"How do I add a YouTube video?" with Article URL citations]**
+**![OptiBot test](docs/screenshot.png)**
 
 ## Notes
 
