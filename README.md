@@ -94,7 +94,7 @@ Job logs: **[TODO: paste your GitHub Actions run URL here, e.g.
 
 ## Screenshot
 
-**![OptiBot test](docs/screenshot.png)**
+**![OptiBot test](screenshot.png)**
 
 ## Notes
 
