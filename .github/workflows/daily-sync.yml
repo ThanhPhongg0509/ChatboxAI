@@ -1,0 +1,23 @@
+name: Daily KB Sync
+
+on:
+  schedule:
+    - cron: "0 3 * * *"   # 03:00 UTC every day
+  workflow_dispatch: {}     # allows manual "Run workflow" button too
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t kb-sync-daemon .
+
+      - name: Run daily sync
+        run: |
+          docker run --rm \
+            -e OPENAI_API_KEY="${{ secrets.OPENAI_API_KEY }}" \
+            -e VECTOR_STORE_ID="${{ secrets.VECTOR_STORE_ID }}" \
+            kb-sync-daemon
